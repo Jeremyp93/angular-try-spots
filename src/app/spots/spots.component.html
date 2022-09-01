@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Recherche par nom ou ville:</div>
+      <div class="col-md-4">
+        <input type="text" [(ngModel)]="searchSpot" />
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table" *ngIf="spots && spots.length">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Category</th>
+            <th>Saison</th>
+            <th>Lieu</th>
+            <th>Visite</th>
+            <th>Score</th>
+            <th>Commentaire</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let spot of filteredSpots">
+            <td>{{spot.name}}</td>
+            <td>{{spot.category}}</td>
+            <td>{{spot.season}}</td>
+            <td>{{spot.location | location}}</td>
+            <td>{{spot.visited}}</td>
+            <td>{{spot.rating}}</td>
+            <td><app-comment comment="{{spot.comment}}"></app-comment></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

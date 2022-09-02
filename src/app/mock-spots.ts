@@ -6,14 +6,17 @@ export const SPOTS: Spot[] = [
     category: 'Restaurant',
     season: 'N/A',
     location: {street: 'Rue Belanger', city: 'Montreal', postalcode: 'H2E', country: "Canada"},
-    visited: false
+    visited: false,
+    rating: -1
   },
   { id: 2,
     name: 'Montagne Bromont',
     category: 'Ski',
-    season: 'hiver',
-    location: {street: 'Rue Belanger', city: 'Bromont', postalcode: 'H2E', country: "Canada"},
-    visited: false
+    season: 'winter',
+    location: {city: 'Bromont', postalcode: 'H2E', country: "Canada"},
+    visited: false,
+    comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+    rating: -1
   },
   { id: 3,
     name: 'Quebec City',
@@ -28,12 +31,13 @@ export const SPOTS: Spot[] = [
     category: 'Spectacle',
     season: 'N/A',
     location: {city: 'Montreal', postalcode: 'H2E', country: "Canada"},
-    visited: false
+    visited: false,
+    rating: -1
   },
   { id: 5,
     name: 'Parc Mont-Tremblant',
     category: 'Parc National',
-    season: 'ete',
+    season: 'summer',
     location: {city: 'Mont-Tremblant', country: "Canada"},
     visited: true,
     rating: 5,

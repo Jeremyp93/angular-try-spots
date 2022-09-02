@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
     <div class="row">
-      <div class="col-md-2">Recherche par nom ou ville:</div>
+      <div class="col-md-3">Recherche par nom ou ville:</div>
       <div class="col-md-4">
         <input type="text" [(ngModel)]="searchSpot" />
       </div>
@@ -11,26 +11,35 @@
         <thead>
           <tr>
             <th>Nom</th>
-            <th>Category</th>
+            <th (click)="sort('category')" style="cursor: pointer;">Category</th>
             <th>Saison</th>
             <th>Lieu</th>
             <th>Visite</th>
-            <th>Score</th>
+            <th (click)="sort('rating')" style="cursor: pointer;">Score</th>
             <th>Commentaire</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let spot of filteredSpots">
-            <td>{{spot.name}}</td>
-            <td>{{spot.category}}</td>
-            <td>{{spot.season}}</td>
-            <td>{{spot.location | location}}</td>
-            <td>{{spot.visited}}</td>
-            <td>{{spot.rating}}</td>
+          <tr *ngFor="let spot of filteredSpots" [style.background-color]="getCorrectBackgroundColor(spot)">
+            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.name}}</td>
+            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.category}}</td>
+            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.season}}</td>
+            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.location | location}}</td>
+            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.visited ? 'Oui' : 'Non'}}</td>
+            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;"><app-star [rating]="spot.rating"></app-star></td>
             <td><app-comment comment="{{spot.comment}}"></app-comment></td>
           </tr>
         </tbody>
       </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

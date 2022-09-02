@@ -7,6 +7,7 @@ export interface Spot {
   season: string,
   location: Location,
   visited: boolean,
-  rating?: number
-  comment?: string
+  rating: number
+  comment?: string,
+  image?: string
 }

@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>Ajouter un spot</h2>
+  <form #form="ngForm">
+    <div class="mb-3">
+      <label for="name">Nom</label>
+      <input id="name" type="text" name="name" class="form-control" [(ngModel)]="spot.name">
+    </div>
+    <div class="mb-3">
+      <label for="category">Categorie</label>
+      <select class="form-control" name="category" id="category" [(ngModel)]="spot.category">
+        <option>Restaurant</option>
+        <option>Ski</option>
+        <option>Parc National</option>
+        <option>Spectacle</option>
+        <option>Ville</option>
+        <option>Autre</option>
+      </select>
+    </div>
+    <h6>Saison</h6>
+    <div class="mb-3">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="season" id="N/A" [(ngModel)]="spot.season" value="N/A">
+        <label class="form-check-label" for="N/A">
+          Tout
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="season" id="winter" [(ngModel)]="spot.season" value="winter">
+        <label class="form-check-label" for="winter">
+          Hiver
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="season" id="summer" [(ngModel)]="spot.season" value="summer">
+        <label class="form-check-label" for="summer">
+          Ete
+        </label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="comment">Commentaires</label>
+      <textarea name="comment" id="comment" cols="30" rows="3" class="form-control" [(ngModel)]="spot.comment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">{{spot.id === 0 ? 'Ajouter' : 'Modifier'}}</button>
+  </form>
+</div>
+
+{{form.value | json}}

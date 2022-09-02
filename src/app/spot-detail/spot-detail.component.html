@@ -1,0 +1,7 @@
+<div class="container1" *ngIf="spot">
+  <h1>{{ spot.name }} <app-star [rating]="spot.rating"></app-star></h1>
+  <img *ngIf="spot.image" [src]="spot.image" alt="image">
+  <p>Lieu: {{spot.location | location}}</p>
+  <p>Saison: {{spot.season}}</p>
+  <p>Commentaire: {{spot.comment}}</p>
+</div>

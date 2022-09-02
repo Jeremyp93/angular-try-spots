@@ -7,20 +7,24 @@ import { LocationPipe } from './location.pipe';
 import { FormsModule } from '@angular/forms';
 import { CommentPipe } from './comment.pipe';
 import { CommentComponent } from './comment/comment.component';
+import { StarComponent } from './shared/star.component';
+import { SpotDetailComponent } from './spot-detail/spot-detail.component';
+import { RouterModule } from '@angular/router';
+import { SpotModule } from './spots/spot.module';
+import { SpotNewEditComponent } from './spot-new-edit/spot-new-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpotsComponent,
-    LocationPipe,
-    CommentPipe,
-    CommentComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    RouterModule.forRoot([
+      { path: '', redirectTo: 'home',  pathMatch: 'full' },
+      { path: '**', redirectTo: 'home',  pathMatch: 'full' } //Used to show 404 not found
+    ]),
+    SpotModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,11 +11,23 @@
         <thead>
           <tr>
             <th>Nom</th>
-            <th (click)="sort('category')" style="cursor: pointer;">Category</th>
+            <th (click)="sort('category')" style="cursor: pointer;">
+              <div class="col-flex">
+                <span class="col-label">Category</span>
+                <span class="col-icon" *ngIf="column === 'category' && !isDesc">▲</span>
+                <span class="col-icon" *ngIf="column === 'category' && isDesc">▼</span>
+              </div>
+            </th>
             <th>Saison</th>
             <th>Lieu</th>
             <th>Visite</th>
-            <th (click)="sort('rating')" style="cursor: pointer;">Score</th>
+            <th (click)="sort('rating')" style="cursor: pointer;">
+              <div class="col-flex">
+                <span class="col-label">Score</span>
+                <span class="col-icon" *ngIf="column === 'rating' && !isDesc">▲</span>
+                <span class="col-icon" *ngIf="column === 'rating' && isDesc">▼</span>
+              </div>
+            </th>
             <th>Commentaire</th>
           </tr>
         </thead>

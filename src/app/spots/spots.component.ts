@@ -14,6 +14,8 @@ export class SpotsComponent implements OnInit, OnDestroy {
   pageTitle: string = 'Spots';
   sub!: Subscription;
   errorMessage: string = '';
+  column: string = '';
+  isDesc: boolean = false;
   dict: Object = {};
 
   private _searchSpot = "";
@@ -54,18 +56,15 @@ export class SpotsComponent implements OnInit, OnDestroy {
   }
 
   sort = (property: keyof Spot): void => {
-    if (!this.dict.hasOwnProperty(property)) {
-      (this.dict as any)[property] = 'asc';
+    if (this.column !== property) {
+      this.isDesc = false;
       this.sortAsc(property);
-      return;
+    } else {
+      this.isDesc = !this.isDesc;
+      if (this.isDesc) this.sortDesc(property);
+      else this.sortAsc(property);
     }
-    if ((this.dict as any)[property] === 'asc') {
-      (this.dict as any)[property] = 'des';
-      this.sortDes(property);
-      return;
-    }
-    (this.dict as any)[property] = 'asc';
-    this.sortAsc(property);
+    this.column = property;
   }
 
   private sortAsc = (property: keyof Spot) => {
@@ -80,7 +79,7 @@ export class SpotsComponent implements OnInit, OnDestroy {
     });
   }
 
-  private sortDes = (property: keyof Spot) => {
+  private sortDesc = (property: keyof Spot) => {
     this.filteredSpots.sort(function(a, b) {
       if (a[property]! > b[property]!) {
         return -1;

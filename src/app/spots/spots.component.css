@@ -19,3 +19,17 @@ td:last-child {
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+.col-flex{
+  display: flex;
+}
+.col-flex > .col-label {
+  flex: 4;
+}
+
+.col-flex > .col-icon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

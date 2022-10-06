@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { SpotModule } from './spots/spot.module';
+import { SidepaneComponent } from './sidepane/sidepane.component';
 
 @NgModule({
   declarations: [

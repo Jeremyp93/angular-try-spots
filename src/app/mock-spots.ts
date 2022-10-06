@@ -11,6 +11,7 @@ export const SPOTS: Spot[] = [
   },
   { id: 2,
     name: 'Montagne Bromont',
+    image: '2.jpg',
     category: 'Ski',
     season: 'winter',
     location: {city: 'Bromont', postalcode: 'H2E', country: "Canada"},
@@ -20,6 +21,7 @@ export const SPOTS: Spot[] = [
   },
   { id: 3,
     name: 'Quebec City',
+    image: '3.jpg',
     category: 'Ville',
     season: 'N/A',
     location: {city: 'Quebec City', country: "Canada"},
@@ -41,6 +43,6 @@ export const SPOTS: Spot[] = [
     location: {city: 'Mont-Tremblant', country: "Canada"},
     visited: true,
     rating: 5,
-    comment: 'Best place ever ! kjsdnkjdbshdkbdskahbdj,sdzxnjcnsdbbsdkbkdhbdsksdbkbs'
+    comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   }
 ];

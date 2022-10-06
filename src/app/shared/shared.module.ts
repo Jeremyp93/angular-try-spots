@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LocationPipe } from '../location.pipe';
 import { CommentPipe } from '../comment.pipe';
 import { CommentComponent } from '../comment/comment.component';
+import { SidepaneComponent } from '../sidepane/sidepane.component';
 
 
 
@@ -15,6 +16,7 @@ import { CommentComponent } from '../comment/comment.component';
     CommentPipe,
     CommentComponent,
     StarComponent,
+    SidepaneComponent
   ],
   imports: [
     CommonModule
@@ -25,7 +27,8 @@ import { CommentComponent } from '../comment/comment.component';
     FormsModule,
     LocationPipe,
     CommentPipe,
-    CommentComponent
+    CommentComponent,
+    SidepaneComponent
   ]
 })
 export class SharedModule { }

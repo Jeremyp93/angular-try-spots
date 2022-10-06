@@ -17,6 +17,8 @@ export class SpotsComponent implements OnInit, OnDestroy {
   column: string = '';
   isDesc: boolean = false;
   dict: Object = {};
+  showSidepane: boolean = false;
+  selectedSpot?: Spot
 
   private _searchSpot = "";
   get searchSpot(): string {
@@ -53,6 +55,15 @@ export class SpotsComponent implements OnInit, OnDestroy {
     if (!spot.visited) return 'grey';
     if (spot.rating! > 3) return 'green';
     return 'red';
+  }
+
+  openSidepane = (spot: Spot) => {
+    this.selectedSpot = spot;
+    this.showSidepane = true;
+  }
+
+  closeSidepane = () => {
+    this.showSidepane = false;
   }
 
   sort = (property: keyof Spot): void => {

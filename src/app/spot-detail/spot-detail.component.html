@@ -1,7 +1,13 @@
-<div class="container1" *ngIf="spot">
-  <h1>{{ spot.name }} <app-star [rating]="spot.rating"></app-star></h1>
-  <img *ngIf="spot.image" [src]="spot.image" alt="image">
-  <p>Lieu: {{spot.location | location}}</p>
-  <p>Saison: {{spot.season}}</p>
-  <p>Commentaire: {{spot.comment}}</p>
+<div *ngIf="spot">
+  <app-star [rating]="spot.rating"></app-star>
+  <div class="season" *ngIf="spot.season !== 'N/A'">
+    <i *ngIf="spot.season === 'summer'" class="fa fa-thermometer-full" aria-hidden="true" style="color: red;"></i>
+    <i *ngIf="spot.season === 'winter'" class="fa fa-thermometer-empty" aria-hidden="true" style="color: blue;"></i>
+  </div>
+  <br *ngIf="spot.rating !== -1 || spot.season !== 'N/A'" />
+  <div class="wrapper"><img *ngIf="spot.image" [src]="'../assets/img/'+spot.image" alt="image"></div>
+  <br *ngIf="spot.image" />
+  <b>Lieu:</b> <p>{{spot.location | location}}</p>
+  <b>Saison:</b> <p>{{spot.season}}</p>
+  <b>Commentaire:</b> <p>{{spot.comment}}</p>
 </div>

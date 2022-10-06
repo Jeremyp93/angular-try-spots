@@ -20,7 +20,6 @@
             </th>
             <th>Saison</th>
             <th>Lieu</th>
-            <th>Visite</th>
             <th (click)="sort('rating')" style="cursor: pointer;">
               <div class="col-flex">
                 <span class="col-label">Score</span>
@@ -33,12 +32,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let spot of filteredSpots" [style.background-color]="getCorrectBackgroundColor(spot)">
-            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.name}}</td>
-            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.category}}</td>
-            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.season}}</td>
-            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.location | location}}</td>
-            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;">{{spot.visited ? 'Oui' : 'Non'}}</td>
-            <td [routerLink]="['/spot', spot.id]" style="cursor: pointer;"><app-star [rating]="spot.rating"></app-star></td>
+            <td (click)="openSidepane(spot)" style="cursor: pointer;">{{spot.name}}</td>
+            <td (click)="openSidepane(spot)" style="cursor: pointer;">{{spot.category}}</td>
+            <td (click)="openSidepane(spot)" style="cursor: pointer;">{{spot.season}}</td>
+            <td (click)="openSidepane(spot)" style="cursor: pointer;">{{spot.location | location}}</td>
+            <td (click)="openSidepane(spot)" style="cursor: pointer;"><app-star [rating]="spot.rating"></app-star></td>
             <td><app-comment comment="{{spot.comment}}"></app-comment></td>
           </tr>
         </tbody>
@@ -55,3 +53,6 @@
     </div>
   </div>
 </div>
+<app-sidepane *ngIf="showSidepane" [title]="selectedSpot?.name" (onSidepaneClosed)="closeSidepane()">
+  <app-spot-detail [spot]="selectedSpot"></app-spot-detail>
+</app-sidepane>

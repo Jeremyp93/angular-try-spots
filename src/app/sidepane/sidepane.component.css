@@ -1,0 +1,35 @@
+.sidepane {
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    background-color: lightgray;
+    width: 25%;
+    height: 100%;
+    overflow: scroll;
+  }
+  
+  .sidepane > * {
+    margin: 10px;
+  }
+  
+  .sidepane > .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidepane > .header > .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    cursor: pointer;
+  }
+
+  .sidepane > .body {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }

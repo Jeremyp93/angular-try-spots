@@ -9,5 +9,6 @@ export interface Spot {
   visited: boolean,
   rating: number
   comment?: string,
-  image?: string
+  image?: string,
+  website?: string
 }
